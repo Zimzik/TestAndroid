@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static int pagesCounter = 1;
+    public static int pagesCounter = 0;
     private ViewPager mPager;
     private MyPagerAdapter mPagerAdapter;
 
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         mPagerAdapter = new MyPagerAdapter(fragmentManager);
-        Fragment fragment = Page.newInstance(pagesCounter, mPagerAdapter, mPager);
+        Fragment fragment = Page.newInstance(++pagesCounter, mPagerAdapter, mPager);
         mPagerAdapter.addPage(fragment);
         mPager.setAdapter(mPagerAdapter);
     }
